@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
     --dark-color: #131318;
     --sec-color: #da3a27;
@@ -99,6 +103,13 @@ nav ul li a:hover::after {
     font-size: 60px;
     font-weight: 600;
     color: #cdbaa1;
+}
+.abt {
+    margin-bottom: -50px;
+}
+.about-info {
+    font-size: 21px;
+    text-align: left;
 }
 .tab-titles {
     display: flex;
@@ -264,6 +275,7 @@ nav ul li a:hover::after {
     text-decoration: none;
     color: #cdbaa1;
     transition: background 0.6s;
+    cursor: pointer;
 }
 .btn:hover {
     background: #da3a27;
@@ -324,6 +336,7 @@ form btn2 {
     padding: 14px 60px;
     font-size: 18px;
     margin-top: 20px;
+    cursor: pointer;
 }
 .copyright {
     width: 100%;
@@ -346,11 +359,11 @@ nav .fa-solid {
         background-image: url();/*use the phone pic here*/
     }
     .header-text{
-        margin-top: 100%;
-        font-size: 16px;
+        margin-top: 100px;
+        font-size: 20px;
     }
     .header-text h1{
-        font-size: 30px;
+        font-size: 40px;
     }
     nav .fa-solid{
         display: block;
@@ -386,4 +399,22 @@ nav .fa-solid {
     .about-col-1{
         margin-bottom: 30px;
     }
+    .tab-links{
+        font-size: 16px;
+    }
+
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+
+    }
+    .copyright{
+        font-size: 14px;
+    }
+
+}
+
+#msg{
+    color: var(--accent-color);
+    margin-top: -40px;
+    display: block;
 }

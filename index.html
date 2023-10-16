@@ -15,10 +15,10 @@
             <nav>
                 <img src="https://www.pngall.com/wp-content/uploads/14/Gigachad-Transparent.png" class="logo">
                 <ul id="sidemenu">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portf">Portfolio</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <i class="fa-solid fa-x" onclick="closemenu()"></i>
                 </ul>
@@ -38,8 +38,10 @@
                     <img src="https://i.seadn.io/gae/_9to9M96e2o7mE1U1o0oaPQ2s03Y3RSsm6Kubz9k9D4mwC2_oYDpIKTDATidGJv_X9JRyfFf3BnUBrIhoLXCcPzmqVK7z6fWujHz7-8?auto=format&dpr=1&w=1000">
                 </div>
                 <div class="about-col-2">
-                    <h1 class="sub-title" id="about">About Me</h1>
-                    <p>Some text that I will edit later on.Some text that I will edit later on.Some text that I will edit later on.Some text that I will edit later on.</p>
+                    <h1 class="sub-title" id="about abt">About Me</h1>
+                    <p class="about-info"> I'm all about turning digital dreams into reality.
+                         I blend creativity with technical know-how to bring your vision to life.
+                          Your success is my mission.</p>
 
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -80,34 +82,25 @@
                 <div>
                     <i class="fa-solid fa-code" style="color: #cdbaa1;"></i>
                     <h2>Web Design</h2>
-                    <p>Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic. </p>
+                    <p>Your vision deserves a digital home that reflects its unique essence.
+                         I'm here to turn your ideas into a beautifully crafted website, tailored to your specific needs.
+                         With a keen eye for design and a passion for functionality, I'll bring your online presence to life. </p>
                         <a id="learn-more" href="#">learn more</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-crop-simple " style="color: #cdbaa1;"></i>
                     <h2>UI/UX Design</h2>
-                    <p>Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic. </p>
+                    <p>UI (User Interface) and UX (User Experience) design are like the secret sauce for your digital presence.
+                         It's all about making your brand look great and ensuring your users have a fantastic time.
+                         Let's sprinkle some design magic on your digital journey! </p>
                         <a id="learn-more" href="#">learn more</a>
                 </div>
                 <div>
                     <i class="fa-brands fa-google-play" style="color: #cdbaa1;"></i>
                     <h2>App Design</h2>
-                    <p>Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic
-                        Lorem Ipsum text here that will be replaced at a later date epic. </p>
+                    <p>Web apps are the future of user-friendly, versatile digital experiences.
+                         They work on any device with an internet connection, providing endless possibilities for your business.
+                          Whether it's engaging customers or streamlining operations, web apps have you covered. </p>
                         <a id="learn-more" href="#">learn more</a>
                 </div>
             </div>
@@ -171,12 +164,13 @@
                     <a href="images/Epic CV Bro Ur Hired.txt" download class="btn btn2">Download My CV</a>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your E-mail" required>
+                        <input type="email" name="Email" placeholder="Your E-mail" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Send it!</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
         </div>
@@ -212,6 +206,24 @@
         }
 
     </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwo4IPaz68niCOX1g4MzacUoMQI9M2VMX2SMpfaN8Cdt7dQ43x_pS78-l4bueL9Orqj/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 </body>
 </html>
