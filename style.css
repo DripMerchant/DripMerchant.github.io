@@ -4,6 +4,14 @@
     font-family: 'Bahnschrift', sans-serif;
     box-sizing: border-box;
 }
+
+:root {
+    --dark-color: #131318;
+    --sec-color: #da3a27;
+    --accent-color: #2d3021;
+    --text-color: #cdbaa1;
+}
+
 body {
     background: #131318;
 }
@@ -33,7 +41,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #cdbaa1;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 18px;
     position: relative;
@@ -43,7 +51,7 @@ nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background: #da3a27;
+    background: var(--sec-color);
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -55,7 +63,7 @@ nav ul li a:hover::after {
 .header-text {
     margin-top: 20%;
     font-size: 30px;
-    color: #cdbaa1;
+    color: var(--text-color);
 }
 .header-text h1 {
     font-size: 60px;
